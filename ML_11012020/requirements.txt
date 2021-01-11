@@ -1,0 +1,7 @@
+#Install these modules before moving on
+
+pandas==1.2.0
+openpyxl==3.0.5
+
+# If you are using xls files, clear # of this one 
+#xlrd==2.0.1
