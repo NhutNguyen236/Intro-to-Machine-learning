@@ -6,4 +6,5 @@
   - IDLE  - don't recommend since I think you know why :grimacing:
   - Spyder
   - Thonny
-  - Pyscripter
+  - [Pyscripter](https://softfamous.com/portable-pyscripter/)
+  - [PyDev](https://www.pydev.org/download.html)
