@@ -34,7 +34,7 @@ Evaluate by Accuracy
     <img src = "https://i.ibb.co/qM27wr0/image.png" width="250px"/>
 </p>
 
-- Okie, let's practice, let the game begin with crawling data manually from a simple article
+- Okie, let's practice, let the game begin with crawling data manually from a simple article. Visit `Crawling_practice` for more
     - URL: https://e.vnexpress.net/news/news/first-saigon-metro-line-gets-power-4237364.html
 
 - It's new to me so I will try to build myself a web crawler using Python

@@ -1,5 +1,11 @@
-# This is a simple web scraper using selenium to get all news titles from any Vnexpress URL
-
+'''
+This is a simple page scrape which can access using a generic url, I will try to build it to scrape
+[] Title
+[] Topic
+[] Author
+[] Date
+[] Content
+'''
 from selenium import webdriver
 
 # Write data to Excel file 
