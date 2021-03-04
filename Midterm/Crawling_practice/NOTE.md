@@ -7,3 +7,4 @@
 - [Official Selenium doc](https://selenium-python.readthedocs.io/locating-elements.html)
 - [Get to know about click() in Selenium](https://stackoverflow.com/questions/45029240/how-to-find-href-through-class-name-and-click-with-selenium)
 - There are ads all over the website so we need to clean it our data, sooner or later 
+- :book: In the first version of the crawler, I don't really use the automation technique which is topiuc

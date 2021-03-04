@@ -8,11 +8,8 @@ import csv
 
 driver = webdriver.Chrome('D:/chromedriver_win32/chromedriver.exe')
 
-driver.get("https://vnexpress.net/phap-luat")
-headlines = driver.find_elements_by_css_selector("h3 a[href*='https://vnexpress.net']")
+driver.get("https://vnexpress.net/hai-duong-them-6-ca-covid-19-4243653.html")
 
+des = driver.find_element_by_class_name('description')
 
-for headline in headlines:
-    headline.click()
-    drive
-    print('click')
+print(des.text.strip())

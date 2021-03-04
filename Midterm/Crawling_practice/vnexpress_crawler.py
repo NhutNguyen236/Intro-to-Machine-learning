@@ -25,7 +25,7 @@ import time
 driver = webdriver.Chrome('D:/chromedriver_win32/chromedriver.exe')
 
 # Define url path
-main_url = "".join(["https://vnexpress.net/phap-luat"])
+main_url = "".join(["https://vnexpress.net/du-lich-p2"])
 # Get url path
 driver.get(main_url)
 
@@ -36,7 +36,8 @@ sheet1 = workbook.add_sheet('Sheet 1')
 
 # Step 1: Get all urls
 # First, I am getting a list of web-element which stands for news title
-titles = driver.find_elements_by_css_selector("h3 a[href*='https://vnexpress.net']")
+# This is the weak point of using css_selector, different pages got different ways to arrange their element so the tags got changed to adapt
+titles = driver.find_elements_by_css_selector("h2 a[href*='https://vnexpress.net']")
 
 # Get urls from titles
 url_array = []
@@ -54,15 +55,20 @@ sheet1.write(0, 1, 'Content', title_style)
 sheet1.write(0, 2, 'Topic', title_style)
 
 for u in url_array:
-    # Write the title in xls first 
-    sheet1.write(row, 0, str(t))
     # Step 2: Now I can get url from the title above
-
     # Go to the url to scrape things
     driver.get(u)
 
+    # Write the title in xls first 
+    title = driver.find_element_by_class_name('title-detail')
+    sheet1.write(row, 0, str(title.text.strip()))
+
     # now this is where the game begins, let's scrape all the contents and topics baby!!!
-    # Frist is the content
+    # Frist is the description
+    des = driver.find_element_by_class_name('description')
+    sheet1.write(row, 1, str(des.text.strip()), content_style)
+    # This is for scraping the rest of the content
+    '''
     contents = driver.find_elements_by_class_name("Normal")
     content_array = []
 
@@ -76,15 +82,20 @@ for u in url_array:
 
     # Re-write the array in cell of excel
     sheet1.write(row, 1, content_str, content_style)
+    '''
 
     # Second, it is for topics
-    xpath = "/html/body/section[5 or 4 or 3]/div/div[2]/div[1]/ul/li/a"
-    topic = driver.find_element_by_xpath(xpath)
+    # This is for the white theme only so it could be a mess for the black one
+    xpath1 = "/html/body/section[5 or 4 or 3 or 2 or 1 or 0]/div/div[2]/div[1]/ul/li/a"
+    xpath2 = "/html/body/section[4]/div/div[1]/ul/li[1]/a"
+    # Solution for this problem is | operator
+    topic = driver.find_element_by_xpath(xpath1)
+    
     sheet1.write(row, 2, topic.text)
 
     # Now increase the row for something else
     row = row + 1
-    time.sleep(3)
+    time.sleep(1.5)
 
 # Save excel file .... and hhhm this needs a specification, fosho
-workbook.save('./Data/data_test.xls')
+workbook.save('./Data/du-lich.xls')
