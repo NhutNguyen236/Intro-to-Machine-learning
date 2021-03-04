@@ -1,5 +1,5 @@
 '''
-This is a simple page scrape which can access using a generic url, I will try to build it to scrape
+This is a simple page scraper which can access using a generic url, I will try to build it to scrape
     [x] Title
     [x] Topic
     [x] Content

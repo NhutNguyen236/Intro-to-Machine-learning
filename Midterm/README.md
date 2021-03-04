@@ -19,6 +19,8 @@ Evaluate by Accuracy
 - [] Using SVM for training of document classification
 - [] Evaluate by Accuracy
 
+
+
 ## :question: How I started? 
 - Look, as a dummy in Machine Learning, I do read the books first and things that read are all in `Books` folder
 
