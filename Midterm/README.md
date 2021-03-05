@@ -13,7 +13,7 @@ Using SVM for training of document classification
 Evaluate by Accuracy
 
 ## :bookmark: Objective evaluation 
-- [] Crawl data from Vnexpress from 5 topics, 40 articles/topic => 200 articles in total
+- [x] Crawl data from Vnexpress from 5 topics, 40 articles/topic => 200 articles in total
 - [] Data pre processing
 - [] Extract model using TF-IDF feature
 - [] Using SVM for training of document classification

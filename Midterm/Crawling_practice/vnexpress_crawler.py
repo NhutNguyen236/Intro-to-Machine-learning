@@ -25,7 +25,7 @@ import time
 driver = webdriver.Chrome('D:/chromedriver_win32/chromedriver.exe')
 
 # Define url path
-main_url = "".join(["https://vnexpress.net/du-lich-p2"])
+main_url = "".join(["https://vnexpress.net/kinh-doanh"])
 # Get url path
 driver.get(main_url)
 
@@ -37,7 +37,7 @@ sheet1 = workbook.add_sheet('Sheet 1')
 # Step 1: Get all urls
 # First, I am getting a list of web-element which stands for news title
 # This is the weak point of using css_selector, different pages got different ways to arrange their element so the tags got changed to adapt
-titles = driver.find_elements_by_css_selector("h2 a[href*='https://vnexpress.net']")
+titles = driver.find_elements_by_css_selector("h3 a[href*='https://vnexpress.net']")
 
 # Get urls from titles
 url_array = []
@@ -54,6 +54,7 @@ sheet1.write(0, 0, 'Title', title_style)
 sheet1.write(0, 1, 'Content', title_style)
 sheet1.write(0, 2, 'Topic', title_style)
 
+# Actually, this one is just an url reader
 for u in url_array:
     # Step 2: Now I can get url from the title above
     # Go to the url to scrape things
@@ -86,9 +87,11 @@ for u in url_array:
 
     # Second, it is for topics
     # This is for the white theme only so it could be a mess for the black one
-    xpath1 = "/html/body/section[5 or 4 or 3 or 2 or 1 or 0]/div/div[2]/div[1]/ul/li/a"
+    xpath1 = "/html/body/section[5 or 4 or 3]/div/div[1 or 2]/div[1]/ul/li[0 or 1]/a"
     xpath2 = "/html/body/section[4]/div/div[1]/ul/li[1]/a"
     # Solution for this problem is | operator
+    #/html/body/section[4]/div/div[1]/div[1]/ul/li[1]/a
+
     topic = driver.find_element_by_xpath(xpath1)
     
     sheet1.write(row, 2, topic.text)
@@ -98,4 +101,4 @@ for u in url_array:
     time.sleep(1.5)
 
 # Save excel file .... and hhhm this needs a specification, fosho
-workbook.save('./Data/du-lich.xls')
+workbook.save('./Data/kinh-doanh.xls')
