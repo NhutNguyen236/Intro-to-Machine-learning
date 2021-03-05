@@ -18,5 +18,9 @@ for file in files:
     if file.endswith('.xls'):
         df = df.append(pd.read_excel('./Data/Data/' + file), ignore_index=True) 
 df.head() 
-merge_path = "./Data/dataset_merged.xls"
-df.to_excel(merge_path)
+merge_path_xls = "./Data/dataset_merged.xls"
+merge_path_xlsx = "./Data/dataset_merged.xlsx"
+
+# to_excel to write head to Excel files
+df.to_excel(merge_path_xls)
+df.to_excel(merge_path_xlsx)
