@@ -14,8 +14,8 @@ Evaluate by Accuracy
 
 ## :bookmark: Objective evaluation 
 - [x] Crawl data from Vnexpress from 5 topics, 40 articles/topic => 200 articles in total
-- [] Data pre processing
-- [] Extract model using TF-IDF feature
+- [] Data pre-processing
+- [] Extract model using TF-IDF feature -> Converting Text to Features using TF-IDF
 - [] Using SVM for training of document classification
 - [] Evaluate by Accuracy
 
@@ -55,3 +55,14 @@ pip install scrapy
 ```
 pip install selenium
 ```
+
+- This is noted by 05/03/2021, I have finished my web scraper but it is not good enough but I will give it an update soon.
+
+## :question: Data pre-processing
+
+- After crawling from VnExpress, the :page_with_curl: garbage I have here is a list of things like this
+<p align = "center">
+    <img src = "https://i.ibb.co/XYvC8z3/image.png" width="250px" height="350px"/>
+</p>
+
+- Then, the mission of my here is that I'm going to merge them to 1 xls file only. But the problem here is that there are some duplicated data so let do something about this 
